@@ -9,7 +9,7 @@
 
     <body>
         <h1>Meilleur film</h1>
-            <div></div>
+            <div id="bestMovie"></div>
         <h2>Les films les mieux notés</h2>
             <div class="wrapper">
                 <section id="section1_best_movies">
@@ -43,15 +43,7 @@
                         </section>
                 </section>
             </div>
-            <div id="bestMovies0" class="modal">
-                <div class="modal_content">
-                  <h1>Hello</h1>
-              
-                  <p>Bienvenue sur la fenêtre modale !</p>
-              
-                  <a href="#" class="modal_close">&times;</a>
-                </div>
-            </div>
+            
 
         <h2>Meilleurs films des années 80</h2>
             <div class="wrapper">
@@ -119,38 +111,56 @@
                         </section>
                 </section>
             </div>
-        <h2>Meilleurs films les plus votés</h2>
+        <h2>Meilleurs thriller</h2>
             <div class="wrapper">
-                <section id="section1_voted">
-                    <a href="#section2_voted" class="arrow__btn">‹</a>
-                        <div class="item voted">
+                <section id="section1_thriller">
+                    <a href="#section2_thriller" class="arrow__btn">‹</a>
+                        <div class="item thriller">
                             <img src="">
                         </div>
-                        <div class="item voted">
+                        <div class="item thriller">
                             <img src="">
                         </div>
-                        <div class="item voted">
+                        <div class="item thriller">
                             <img src="">
                         </div>
-                        <div class="item voted">
+                        <div class="item thriller">
                             <img src="">
                         </div>
-                        <a href="#section2_voted" class="arrow__btn">›</a>
+                        <a href="#section2_thriller" class="arrow__btn">›</a>
                         </section>
-                        <section id="section2_voted">
-                        <a href="#section1_voted" class="arrow__btn">‹</a>
-                        <div class="item voted">
+                        <section id="section2_thriller">
+                        <a href="#section1_thriller" class="arrow__btn">‹</a>
+                        <div class="item thriller">
                             <img src="">
                         </div>
-                        <div class="item voted">
+                        <div class="item thriller">
                             <img src="">
                         </div>
-                        <div class="item voted">
+                        <div class="item thriller">
                             <img src="">
                         </div>
-                        <a href="#section1_voted" class="arrow__btn">›</a>
+                        <a href="#section1_thriller" class="arrow__btn">›</a>
                         </section>
                 </section>
+            </div>
+            <div id="bestMovies0" class="modal">
+                <div class="modal_content">
+                  <h1>The Shawshank Redemption</h1>
+                    <img src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg">
+                  <p>genre: movie.genres<br> 
+                    date_published: movie.date_published<br>
+                    rated: movie.rated<br>
+                    imdb_score: movie.imdb_score<br>
+                    directors: movie.directors<br>
+                    actors: movie.actors<br>
+                    duration: movie.duration<br>
+                    countries: movie.countries<br>
+                    worldwide_gross_income: movie.worldwide_gross_income<br>
+                    long_description: movie.long_description</p>
+              
+                  <a href="#" class="modal_close">&times;</a>
+                </div>
             </div>
     </body>
 </html>
