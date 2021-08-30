@@ -8,9 +8,24 @@
     </head>
 
     <body>
-        <h1>Meilleur film</h1>
-            <div id="bestMovie"></div>
-        <h2>Les films les mieux notés</h2>
+        
+            <div id="bestMovie">
+                <div class="poster BestMovie"></div>
+                <div class="play">Play Movie</div>
+                <div class="info BestMovie">
+                    <p>genre: movie.genres<br> 
+                        date_published: movie.date_published<br>
+                        rated: movie.rated<br>
+                        imdb_score: movie.imdb_score<br>
+                        directors: movie.directors<br>
+                        actors: movie.actors<br>
+                        duration: movie.duration<br>
+                        countries: movie.countries<br>
+                        worldwide_gross_income: movie.worldwide_gross_income<br>
+                        long_description: movie.long_description</p>
+                </div>
+            </div>
+        <h2>Best Movies</h2>
             <div class="wrapper">
                 <section id="section1_best_movies">
                     <a href="#section2_best_movies" class="arrow__btn">‹</a>
@@ -45,7 +60,7 @@
             </div>
             
 
-        <h2>Meilleurs films des années 80</h2>
+        <h2>Best Movies from the 80s</h2>
             <div class="wrapper">
                 <section id="section1_best80s">
                     <a href="#section2_best80s" class="arrow__btn">‹</a>
@@ -78,7 +93,7 @@
                         </section>
                 </section>
             </div>
-        <h2>Meilleures comédies</h2>
+        <h2>Best Comedies</h2>
             <div class="wrapper">
                 <section id="section1_comedy">
                     <a href="#section2_comedy" class="arrow__btn">‹</a>
@@ -111,7 +126,7 @@
                         </section>
                 </section>
             </div>
-        <h2>Meilleurs thriller</h2>
+        <h2>Best Thriller Movies</h2>
             <div class="wrapper">
                 <section id="section1_thriller">
                     <a href="#section2_thriller" class="arrow__btn">‹</a>
@@ -143,6 +158,24 @@
                         <a href="#section1_thriller" class="arrow__btn">›</a>
                         </section>
                 </section>
+            </div>
+            <div id="bestMovieModal" class="modal">
+                <div class="modal_content">
+                  <h1>The Shawshank Redemption</h1>
+                    <img src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg">
+                  <p>genre: movie.genres<br> 
+                    date_published: movie.date_published<br>
+                    rated: movie.rated<br>
+                    imdb_score: movie.imdb_score<br>
+                    directors: movie.directors<br>
+                    actors: movie.actors<br>
+                    duration: movie.duration<br>
+                    countries: movie.countries<br>
+                    worldwide_gross_income: movie.worldwide_gross_income<br>
+                    long_description: movie.long_description</p>
+              
+                  <a href="#" class="modal_close">&times;</a>
+                </div>
             </div>
             <div id="bestMovies0" class="modal">
                 <div class="modal_content">

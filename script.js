@@ -83,8 +83,23 @@ async function get_best_movie(cat_url_start)
   const best_movie = await fetch(movie_api);
   const movie_details = await best_movie.json();
   let best_movie_img = movie_details.image_url;
-  var herosection = document.getElementById("bestMovie");
-  herosection.innerHTML = "<img src=" + best_movie_img + ">";
+  var herosection = document.getElementsByClassName("BestMovie");
+  herosection[0].innerHTML = "<a href=#bestMovieModal><img src=" + best_movie_img + "></a>";
+  herosection[1].innerHTML = "<p><em>Summary:</em> " + movie_details.long_description + "</p>"
+  var modalHeroSection = document.getElementsByClassName("modal_content");
+  modalHeroSection[0].innerHTML = ` <h1>${movie_details.original_title}</h1>
+                                      <img src=${movie_details.image_url}>
+                                      <p>Category: ${movie_details.genres}<br> 
+                                         Date Published: ${movie_details.date_published}<br>
+                                         Rated: ${movie_details.rated}<br>
+                                         Imdb score: ${movie_details.imdb_score}<br>
+                                         Directors: ${movie_details.directors}<br>
+                                         Actors: ${movie_details.actors}<br>
+                                         Duration: ${movie_details.duration} min<br>
+                                         Countries: ${movie_details.countries}<br>
+                                         Box Office Results: ${movie_details.worldwide_gross_income} $<br>
+                                         Summary: ${movie_details.long_description}</p> 
+                                         <a href="#" class="modal_close">&times;</a>`
 }
 
 
