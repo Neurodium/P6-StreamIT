@@ -15,6 +15,12 @@ html {
     color: red;
     text-align: left;
    }
+   .logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200 xpx;
+   }
    .play{
     color: white; 
     font-size: 18px;
@@ -59,7 +65,7 @@ html {
    }
    .wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 100%);
+    grid-template-columns: repeat(2, 100%);
     overflow: hidden;
     scroll-behavior: smooth;
    }
@@ -73,10 +79,6 @@ html {
    .wrapper section .item {
     padding: 0px 30%;
     transition: 250ms all;
-   }
-   .wrapper section .item:hover {
-    margin: 20 50px;
-    transform: scale(1.2);
    }
    .wrapper section a.arrow__btn {
     position: absolute;
@@ -129,6 +131,7 @@ html {
     padding: 1.5em 2em;
     border: 2px solid white;
     display: flex;
+    flex-flow: column;
     flex-wrap: wrap;
     font-size: 1.2em;
   }

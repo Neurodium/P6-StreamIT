@@ -16,7 +16,7 @@ var titles_best_comedy = [];
 var titles_best_thriller = [];
 
 
-async function get_movies(start_value, cat_url_start, urls, urls_full, titles, className)
+async function get_movies(start_value, cat_url_start, urls, urls_full, titles, className, modal_start)
 {
   for (let i = 0; i < 2; i++)
     { 
@@ -43,6 +43,8 @@ async function get_movies(start_value, cat_url_start, urls, urls_full, titles, c
     }   
   var section = document.getElementsByClassName(className);
   add_images(section, titles, className);
+  var modal = document.getElementsByClassName("modal_content");
+  add_modal_info(modal_start, modal, titles);
 }
 
 
@@ -69,10 +71,30 @@ function add_titles(movie, titles)
 
 function add_images(section, titles, className)
 {
-  for (let img = 0; img < 7; img++)
+  for (let i = 0; i < 7; i++)
     {
-      section[img].innerHTML = "<a href=#" + className + img + "><img src=" + titles[img].image + "></a>";
+      section[i].innerHTML = "<a href=#" + className + i + "><img src=" + titles[i].image + "></a>";
     }
+}
+
+function add_modal_info(modal_start, modal, titles)
+{
+  for (let i = 0; i < 7; i++)
+  {
+    modal[i + modal_start].innerHTML = ` <h1>${titles[i].title}</h1>
+                                          <img src="${titles[i].image}">
+                                            <p>Category: ${titles[i].genres}<br> 
+                                               Date Published: ${titles[i].date_published}<br>
+                                               Rated: ${titles[i].rated}<br>
+                                               Imdb score: ${titles[i].imdb_score}<br>
+                                               Directors: ${titles[i].directors}<br>
+                                               Actors: ${titles[i].actors}<br>
+                                               Duration: ${titles[i].duration} min<br>
+                                               Countries: ${titles[i].countries}<br>
+                                               Box Office Results: ${titles[i].worldwide_gross_income} $<br>
+                                               Summary: ${titles[i].long_description}</p> 
+                                            <a href="#" class="modal_close">&times;</a>`
+  }
 }
 
 async function get_best_movie(cat_url_start)
@@ -104,8 +126,8 @@ async function get_best_movie(cat_url_start)
 
 
 get_best_movie(url_best_movies);
-get_movies(1, url_best_movies, urls_best_movies, urls_full_best_movies, titles_best_movies, "bestMovies");
-get_movies(0, url_best_80s, urls_best_80s, urls_full_80s, titles_best_80s, "best80s");
-get_movies(0, url_best_comedy, urls_best_comedy, urls_full_comedy, titles_best_comedy, "comedy");
-get_movies(0, url_best_thriller, urls_best_thriller, urls_full_thriller, titles_best_thriller, "thriller");
+get_movies(1, url_best_movies, urls_best_movies, urls_full_best_movies, titles_best_movies, "bestMovies", 1);
+get_movies(0, url_best_80s, urls_best_80s, urls_full_80s, titles_best_80s, "best80s", 8);
+get_movies(0, url_best_comedy, urls_best_comedy, urls_full_comedy, titles_best_comedy, "comedy", 15);
+get_movies(0, url_best_thriller, urls_best_thriller, urls_full_thriller, titles_best_thriller, "thriller", 22);
 
