@@ -5,6 +5,7 @@ html {
     margin: 0;
     background-color: black;
    }
+   /*movie categories font*/
    h1 {
     font-family: Arial;
     color: red;
@@ -15,12 +16,14 @@ html {
     color: red;
     text-align: left;
    }
+   /*logo place*/
    .logo{
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 200px;
    }
+   /*play button for star video*/
    .play{
     color: white; 
     font-size: 18px;
@@ -30,10 +33,12 @@ html {
     text-align: center;
     padding-top: 10px;
    }
+   /*buton play animation*/
    .play:hover{
      color: black;
      background-color: white;
    }
+   /*hero section display*/
    #bestMovie{
      display: flex;
      align-content: center;
@@ -45,9 +50,11 @@ html {
      border: 2px solid white;
      margin: 0 auto;
    }
+   /*hero section picture alignment*/
    #bestMovie .poster{
     margin-right: 150px;
   }
+  /*hero section text style*/
    #bestMovie .info em{
     font-weight: bold;
     font-style: normal;
@@ -55,20 +62,24 @@ html {
    #bestMovie .info{
     width: 500px;
   }
+  /*hero section picture size*/
    #bestMovie img{
      width: 273px;
      height: 402px;    
    }
+   /*text size color of hero section*/
    .info{
      color: white;
      font-size: 1.2em;
    }
+   /*number of repeated section for all categories*/
    .wrapper {
     display: grid;
     grid-template-columns: repeat(2, 100%);
     overflow: hidden;
     scroll-behavior: smooth;
    }
+   /*number of movies displayed at a time*/
    .wrapper section {
     width: 100%;
     position: relative;
@@ -80,6 +91,7 @@ html {
     padding: 0px 30%;
     transition: 250ms all;
    }
+   /*arrow left and right*/
    .wrapper section a.arrow__btn {
     position: absolute;
     color: #fff;
@@ -103,6 +115,7 @@ html {
     right: 0;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, black 100%);
    }
+   /*modal window display*/
    .modal {
     visibility: hidden;
     width: 100%;
@@ -116,10 +129,12 @@ html {
     justify-content: center;
     transition: all .4s;
   }
+  /*modal window visibility when clicked*/
   .modal:target {
     visibility: visible;
     opacity: 1;
   }
+  /*modal window display*/
   .modal_content {
     border-radius: 4px;
     position: relative;
@@ -134,18 +149,20 @@ html {
     flex-wrap: wrap;
     font-size: 1em;
   }
+  /*modal window title*/
   .modal_content h1{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
+  /*modal window picture placement*/
   .modal_content img{
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 35%;
   }
-  
+  /*modal window closing*/
   .modal_close {
     position: absolute;
     top: 10px;

@@ -1,23 +1,35 @@
+//declare api initial url by category
 var url_best_movies = "http://localhost:8000/api/v1/titles?sort_by=-imdb_score&sort_by=-votes";
 var url_best_80s = "http://localhost:8000/api/v1/titles?min_year=1980&max_year=1989&sort_by=-imdb_score&sort_by=-votes";
 var url_best_comedy = "http://localhost:8000/api/v1/titles?genre=comedy&sort_by=-imdb_score&sort_by=-votes";
 var url_best_thriller = "http://localhost:8000/api/v1/titles?genre=thriller&sort_by=-imdb_score&sort_by=-votes";
+
+
+//declare lists to store urls of each page of the category
 var urls_best_movies = [];
 var urls_best_80s = [];
 var urls_best_comedy = [];
 var urls_best_thriller = [];
+
+
+//declare lists to store urls of each movie of a category
 var urls_full_best_movies = [];
 var urls_full_80s = [];
 var urls_full_comedy = [];
 var urls_full_thriller = [];
+
+
+//declare lists to store in dictionnaries all the movie details by category
 var titles_best_movies = [];
 var titles_best_80s = [];
 var titles_best_comedy = [];
 var titles_best_thriller = [];
 
 
+//function to fetch all the movies info and insert them in the HTML page
 async function get_movies(start_value, cat_url_start, urls, urls_full, titles, className, modal_start)
 {
+  //fetch each page of the api url
   for (let i = 0; i < 2; i++)
     { 
       const response = await fetch(cat_url_start);
@@ -25,30 +37,35 @@ async function get_movies(start_value, cat_url_start, urls, urls_full, titles, c
       urls.push(cat_url_start);
       cat_url_start = movie.next;
     }
+  //fetch each result for each page  
   for (let url of urls)
     {
       const response = await fetch(url);
       const movie = await response.json();
       let cat_movies = movie.results;
+      //fetch each detailed url of each movie
       for (let i = start_value; i < cat_movies.length; i++)
       {
         urls_full.push(cat_movies[i].url);
       }   
     }
+    //fetch all the movies details and store them
     for (let url_full of urls_full)
     {
       const response = await fetch(url_full);
       const movie = await response.json();
       add_titles(movie, titles);
-    }   
+    }
+  //look for the section to display the movies images on front page   
   var section = document.getElementsByClassName(className);
   add_images(section, titles, className);
+  //look for the modal windows to replace content with movies details
   var modal = document.getElementsByClassName("modal_content");
   add_modal_info(modal_start, modal, titles);
 }
 
 
-
+//store movie details into a list
 function add_titles(movie, titles)
 {
     titles.push(
@@ -69,6 +86,8 @@ function add_titles(movie, titles)
 
 }
 
+
+//input HTML data with the movie picture in the chosen section
 function add_images(section, titles, className)
 {
   for (let i = 0; i < 7; i++)
@@ -77,6 +96,8 @@ function add_images(section, titles, className)
     }
 }
 
+
+//input HTML data with the movies details into the modal window
 function add_modal_info(modal_start, modal, titles)
 {
   for (let i = 0; i < 7; i++)
@@ -97,6 +118,8 @@ function add_modal_info(modal_start, modal, titles)
   }
 }
 
+
+//function to get the best movie details
 async function get_best_movie(cat_url_start)
 {
   const response = await fetch(cat_url_start);
@@ -105,9 +128,11 @@ async function get_best_movie(cat_url_start)
   const best_movie = await fetch(movie_api);
   const movie_details = await best_movie.json();
   let best_movie_img = movie_details.image_url;
+  //input best movie picture and its summary on front page
   var herosection = document.getElementsByClassName("BestMovie");
   herosection[0].innerHTML = "<a href=#bestMovieModal><img src=" + best_movie_img + "></a>";
   herosection[1].innerHTML = "<p><em>Summary:</em> " + movie_details.long_description + "</p>"
+  //input HTML data into the corresponding modal window
   var modalHeroSection = document.getElementsByClassName("modal_content");
   modalHeroSection[0].innerHTML = ` <h1>${movie_details.original_title}</h1>
                                       <img src=${movie_details.image_url}>
