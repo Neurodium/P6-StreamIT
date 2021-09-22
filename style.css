@@ -39,7 +39,7 @@ html {
      background-color: white;
    }
    /*hero section display*/
-   #bestMovie{
+   .heroSectionAll{
      display: flex;
      align-content: center;
      justify-content: center;
@@ -51,19 +51,19 @@ html {
      margin: 0 auto;
    }
    /*hero section picture alignment*/
-   #bestMovie .poster{
+   .poster{
     margin-right: 150px;
   }
   /*hero section text style*/
-   #bestMovie .info em{
+   .info em{
     font-weight: bold;
     font-style: normal;
   }
-   #bestMovie .info{
+   .info{
     width: 500px;
   }
   /*hero section picture size*/
-   #bestMovie img{
+   .heroSection img{
      width: 273px;
      height: 402px;    
    }
